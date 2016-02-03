@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Testing Typeahead</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="../vk-typeahead/vktypeahead.directive.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.js"></script>
+        <script src="module.js"></script>
+        <script src="vk.search.controller.js"></script>
+        <script src="vk.search.service.js"></script>
+    </head>
+    <body ng-app="vkClient" ng-controller="SearchController">
+        <h1>Testing Typeahead</h1>
+        
+        <input type="text" ng-model="userEntry" typeahead-template-url="searchResults.html"
+               vk-typeahead="value.Name for value in search($viewValue)" typeahead-wait-ms="500">
+        
+        <script type="text/ng-template" id="searchResults.html">
+            <div>
+                <div>
+                    name: {{match.model.Name}}
+                </div>                
+            </div>
+        </script>
+    </body>
+</html>
